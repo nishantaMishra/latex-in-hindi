@@ -1,0 +1,80 @@
+%% पृष्ठ सङ्ख्या, चित्र सङ्ख्या, खण्ड सङ्ख्या तथा समीकरण सङ्ख्या तको देवनागरी अङ्कों में प्रकट करने के लिए 
+
+\makeatletter
+\newcommand{\devanagarinumeral}[1]{\expandafter\@devanagarinumeral\csname c@#1\endcsname}
+\newcommand{\@devanagarinumeral}[1]{%
+  \ifcase#1\or
+  १\or २\or ३\or ४\or ५\or ६\or ७\or ८\or ९\or १०\or
+  ११\or १२\or १३\or १४\or १५\or १६\or १७\or १८\or १९\or २०\or
+  २१\or २२\or २३\or २४\or २५\or २६\or २७\or २८\or २९\or ३०\or
+  ३१\or ३२\or ३३\or ३४\or ३५\or ३६\or ३७\or ३८\or ३९\or ४०\or
+  ४१\or ४२\or ४३\or ४४\or ४५\or ४६\or ४७\or ४८\or ४९\or ५०\or
+  ५१\or ५२\or ५३\or ५४\or ५५\or ५६\or ५७\or ५८\or ५९\or ६०\or
+  ६१\or ६२\or ६३\or ६४\or ६५\or ६६\or ६७\or ६८\or ६९\or ७०\or
+  ७१\or ७२\or ७३\or ७४\or ७५\or ७६\or ७७\or ७८\or ७९\or ८०\or
+  ८१\or ८२\or ८३\or ८४\or ८५\or ८६\or ८७\or ८८\or ८९\or ९०\or
+  ९१\or ९२\or ९३\or ९४\or ९५\or ९६\or ९७\or ९८\or ९९\or १००\else
+  \@ctrerr\fi
+}
+
+
+\newcommand{\devanagaridecimal}[1]{\expandafter\@devanagaridecimal#1\@nil}
+\def\@devanagaridecimal#1.#2\@nil{%
+  \devanagarinumeral{#1}.\devanagarinumeral{#2}%
+}
+\renewcommand{\thesection}{\devanagarinumeral{section}}
+\renewcommand{\thesubsection}{\devanagarinumeral{section}.\devanagarinumeral{subsection}}
+\renewcommand{\thesubsubsection}{\devanagarinumeral{section}.\devanagarinumeral{subsection}.\devanagarinumeral{subsubsection}}
+\makeatother
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% देवनागरी पृष्ठ सङ्ख्या के लिए 
+\newcommand{\devanagaripagenumber}[1]{%
+  \ifcase\value{page}\or
+  १\or २\or ३\or ४\or ५\or ६\or ७\or ८\or ९\or १०\or 
+  ११\or १२\or १३\or १४\or १५\or १६\or १७\or १८\or १९\or २०\or
+  २१\or २२\or २३\or २४\or २५\or २६\or २७\or २८\or २९\or ३०\or
+  ३१\or ३२\or ३३\or ३४\or ३५\or ३६\or ३७\or ३८\or ३९\or ४०\or
+  ४१\or ४२\or ४३\or ४४\or ४५\or ४६\or ४७\or ४८\or ४९\or ५०\or
+  ५१\or ५२\or ५३\or ५४\or ५५\or ५६\or ५७\or ५८\or ५९\or ६०\or
+  ६१\or ६२\or ६३\or ६४\or ६५\or ६६\or ६७\or ६८\or ६९\or ७०\or
+  ७१\or ७२\or ७३\or ७४\or ७५\or ७६\or ७७\or ७८\or ७९\or ८०\or
+  ८१\or ८२\or ८३\or ८४\or ८५\or ८६\or ८७\or ८८\or ८९\or ९०\or
+  ९१\or ९२\or ९३\or ९४\or ९५\or ९६\or ९७\or ९८\or ९९\or १००\else
+  \Numberstring{page} 
+  \fi
+}
+
+%% सूची के अङ्के देवगानरी में प्रकट करने के लिए। यदि प्रलेख में पचास से अधिक चित्र अथवा समीकरण हों तो निम्नवत् सूची का अतिक्रमण करके उसे वाञ्छित सङ्ख्या तक बढ़ा देना चाहिए।
+\makeatletter
+\newcommand{\devanagariEnumeral}[1]{\expandafter\@devanagariEnumeral\csname c@#1\endcsname}
+\newcommand{\@devanagariEnumeral}[1]{%
+  \ifcase#1\or
+  १\or २\or ३\or ४\or ५\or ६\or ७\or ८\or ९\or १०\or ११\or १२\or १३\or १४\or १५\or १६\or १७\or १८\or १९\or २०\or २१\or २२\or २३\or २४\or २५\or २६\or २७\or २८\or २९\or ३०\or ३१\or ३२\or ३३\or ३४\or ३५\or ३६\or ३७\or ३८\or ३९\or ४०\or ४१\or ४२\or ४३\or ४४\or ४५\or ४६\or ४७\or ४८\or ४९\or ५०\else
+  \@ctrerr\fi
+}
+\makeatother
+
+\AddEnumerateCounter{\devanagariEnumeral}{\@devanagariEnumeral}{०}
+
+\setlist[enumerate]{label=\devanagarifont\devanagariEnumeral*., before=\devanagarifont, leftmargin=2.5em}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%समीकरण के लिए
+\usepackage{chngcntr}
+\counterwithin{equation}{section}
+
+\makeatletter
+\newcommand{\devanagariEquation}[1]{\expandafter\@devanagariEquation\csname c@#1\endcsname}
+\newcommand{\@devanagariEquation}[1]{%
+  \ifnum\c@section=0 \@arabic\c@section.\@arabic\c@equation\else\devanagariEnumeral{section}.\devanagariEnumeral{equation}\fi
+}
+
+\renewcommand{\theequation}{\devanagariEquation{equation}}
+\pretocmd{\@sect}{\setcounter{equation}{0}}{}{} % Reset equation counter when a new section starts
+\makeatother
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Modify the figure numbering to appear in Devanāgarī numerals
+\renewcommand{\thefigure}{\devanagariEnumeral{figure}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
