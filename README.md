@@ -3,7 +3,10 @@ For creating latex document in the Hindi language over Overleaf.  I have used \r
 
 ## Highlights
 ### Page numberig appears in devanāgarī.
-### Equation Numbering and Image numbering appears in devanāgarī.
+#### Equation Numbering and Image numbering appears in devanāgarī.
 
 
 See the [PDF](https://github.com/nishantaMishra/latex-in-hindi)
+
+
+
