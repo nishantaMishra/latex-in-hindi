@@ -1,0 +1,154 @@
+%%%%%%%%%%%%%%%
+% Define Devanāgarī numerals. This will translate Arabic (Roman) numbers to Devanāgarī. 
+\makeatletter
+\newcommand{\devanagarinumeral}[1]{\expandafter\@devanagarinumeral\csname c@#1\endcsname}
+\newcommand{\@devanagarinumeral}[1]{%
+  \ifcase#1\or
+  १\or २\or ३\or ४\or ५\or ६\or ७\or ८\or ९\or १०\or
+  ११\or १२\or १३\or १४\or १५\or १६\or १७\or १८\or १९\or २०\or
+  २१\or २२\or २३\or २४\or २५\or २६\or २७\or २८\or २९\or ३०\or
+  ३१\or ३२\or ३३\or ३४\or ३५\or ३६\or ३७\or ३८\or ३९\or ४०\or
+  ४१\or ४२\or ४३\or ४४\or ४५\or ४६\or ४७\or ४८\or ४९\or ५०\or
+  ५१\or ५२\or ५३\or ५४\or ५५\or ५६\or ५७\or ५८\or ५९\or ६०\or
+  ६१\or ६२\or ६३\or ६४\or ६५\or ६६\or ६७\or ६८\or ६९\or ७०\or
+  ७१\or ७२\or ७३\or ७४\or ७५\or ७६\or ७७\or ७८\or ७९\or ८०\or
+  ८१\or ८२\or ८३\or ८४\or ८५\or ८६\or ८७\or ८८\or ८९\or ९०\or
+  ९१\or ९२\or ९३\or ९४\or ९५\or ९६\or ९७\or ९८\or ९९\or १००\else
+  \@ctrerr\fi
+}
+
+% Define Devanāgarī decimal numerals
+\newcommand{\devanagaridecimal}[1]{\expandafter\@devanagaridecimal#1\@nil}
+\def\@devanagaridecimal#1.#2\@nil{%
+  \devanagarinumeral{#1}.\devanagarinumeral{#2}%
+}
+\renewcommand{\thesection}{\devanagarinumeral{section}}
+\renewcommand{\thesubsection}{\devanagarinumeral{section}.\devanagarinumeral{subsection}}
+\renewcommand{\thesubsubsection}{\devanagarinumeral{section}.\devanagarinumeral{subsection}.\devanagarinumeral{subsubsection}}
+\makeatother
+
+% Mapping for Devanāgarī page numbers. Using the \newcommand macro to define page numbers manually. 
+\newcommand{\devanagaripagenumber}[1]{%
+  \ifcase#1\or
+  १\or २\or ३\or ४\or ५\or ६\or ७\or ८\or ९\or १०\or
+  ११\or १२\or १३\or १४\or १५\or १६\or १७\or १८\or १९\or २०\or
+  २१\or २२\or २३\or २४\or २५\or २६\or २७\or २८\or २९\or ३०\or
+  ३१\or ३२\or ३३\or ३४\or ३५\or ३६\or ३७\or ३८\or ३९\or ४०\or
+  ४१\or ४२\or ४३\or ४४\or ४५\or ४६\or ४७\or ४८\or ४९\or ५०\or
+  ५१\or ५२\or ५३\or ५४\or ५५\or ५६\or ५७\or ५८\or ५९\or ६०\or
+  ६१\or ६२\or ६३\or ६४\or ६५\or ६६\or ६७\or ६८\or ६९\or ७०\or
+  ७१\or ७२\or ७३\or ७४\or ७५\or ७६\or ७७\or ७८\or ७९\or ८०\or
+  ८१\or ८२\or ८३\or ८४\or ८५\or ८६\or ८७\or ८८\or ८९\or ९०\or
+  ९१\or ९२\or ९३\or ९४\or ९५\or ९६\or ९७\or ९८\or ९९\or १००\else
+  #1\fi
+}
+
+%%%%%% For Enumerating in Devanāgarī numerals
+\makeatletter
+\newcommand{\devanagariEnumeral}[1]{\expandafter\@devanagariEnumeral\csname c@#1\endcsname}
+\newcommand{\@devanagariEnumeral}[1]{%
+  \ifcase#1\or
+  १\or २\or ३\or ४\or ५\or ६\or ७\or ८\or ९\or १०\or
+  ११\or १२\or १३\or १४\or १५\or १६\or १७\or १८\or १९\or २०\or
+  २१\or २२\or २३\or २४\or २५\or २६\or २७\or २८\or २९\or ३०\or
+  ३१\or ३२\or ३३\or ३४\or ३५\or ३६\or ३७\or ३८\or ३९\or ४०\or
+  ४१\or ४२\or ४३\or ४४\or ४५\or ४६\or ४७\or ४८\or ४९\or ५०\or
+  ५१\or ५२\or ५३\or ५४\or ५५\or ५६\or ५७\or ५८\or ५९\or ६०\or
+  ६१\or ६२\or ६३\or ६४\or ६५\or ६६\or ६७\or ६८\or ६९\or ७०\or
+  ७१\or ७२\or ७३\or ७४\or ७५\or ७६\or ७७\or ७८\or ७९\or ८०\or
+  ८१\or ८२\or ८३\or ८४\or ८५\or ८६\or ८७\or ८८\or ८९\or ९०\or
+  ९१\or ९२\or ९३\or ९४\or ९५\or ९६\or ९७\or ९८\or ९९\or १००\else
+  \@ctrerr\fi
+}
+\makeatother
+
+\AddEnumerateCounter{\devanagariEnumeral}{\@devanagariEnumeral}{०}
+
+\setlist[enumerate]{label=\devanagarifont\devanagariEnumeral*., before=\devanagarifont, leftmargin=2.5em}
+
+%% For Equation Numbering
+\usepackage{etoolbox}
+
+\makeatletter
+\newcommand{\devanagariEquation}[1]{\expandafter\@devanagariEquation\csname c@#1\endcsname}
+\newcommand{\@devanagariEquation}[1]{%
+  \ifcase#1\or
+  १\or २\or ३\or ४\or ५\or ६\or ७\or ८\or ९\or १०\or
+  ११\or १२\or १३\or १४\or १५\or १६\or १७\or १८\or १९\or २०\or
+  २१\or २२\or २३\or २४\or २५\or २६\or २७\or २८\or २९\or ३०\or
+  ३१\or ३२\or ३३\or ३४\or ३५\or ३६\or ३७\or ३८\or ३९\or ४०\or
+  ४१\or ४२\or ४३\or ४४\or ४५\or ४६\or ४७\or ४८\or ४९\or ५०\or
+  ५१\or ५२\or ५३\or ५४\or ५५\or ५६\or ५७\or ५८\or ५९\or ६०\or
+  ६१\or ६२\or ६३\or ६४\or ६५\or ६६\or ६७\or ६८\or ६९\or ७०\or
+  ७१\or ७२\or ७३\or ७४\or ७५\or ७६\or ७७\or ७८\or ७९\or ८०\or
+  ८१\or ८२\or ८३\or ८४\or ८५\or ८६\or ८७\or ८८\or ८९\or ९०\or
+  ९१\or ९२\or ९३\or ९४\or ९५\or ९६\or ९७\or ९८\or ९९\or १००\else
+  \@ctrerr\fi
+}
+
+\renewcommand\theequation{\devanagariEquation{equation}}
+\makeatother
+
+
+
+% Helper function to convert Arabic to Devanāgarī numerals in TOC
+\newcommand{\convertpage}[1]{%
+  \ifcase#1\or
+  १\or २\or ३\or ४\or ५\or ६\or ७\or ८\or ९\or १०\or
+  ११\or १२\or १३\or १४\or १५\or १६\or १७\or १८\or १९\or २०\or
+  २१\or २२\or २३\or २४\or २५\or २६\or २७\or २८\or २९\or ३०\or
+  ३१\or ३२\or ३३\or ३४\or ३५\or ३६\or ३७\or ३८\or ३९\or ४०\or
+  ४१\or ४२\or ४३\or ४४\or ४५\or ४६\or ४७\or ४८\or ४९\or ५०\or
+  ५१\or ५२\or ५३\or ५४\or ५५\or ५६\or ५७\or ५८\or ५९\or ६०\or
+  ६१\or ६२\or ६३\or ६४\or ६५\or ६६\or ६७\or ६८\or ६९\or ७०\or
+  ७१\or ७२\or ७३\or ७४\or ७५\or ७६\or ७७\or ७८\or ७९\or ८०\or
+  ८१\or ८२\or ८३\or ८४\or ८५\or ८६\or ८७\or ८८\or ८९\or ९०\or
+  ९१\or ९२\or ९३\or ९४\or ९५\or ९६\or ९७\or ९८\or ९९\or १००\else
+}
+
+
+%%%%%%%%%%%%%  Table of contents in Devanāgarī %%%%%%%%%%%%%%
+% Redefine the \@dottedtocline to convert page numbers of subsection to Devanāgarī
+\makeatletter
+\def\@dottedtocline#1#2#3#4#5{%
+  \ifnum #1>\c@tocdepth \else
+    \vskip \z@ \@plus.2\p@
+    {\leftskip #2\relax \rightskip #3\relax
+      \parfillskip \@pnumwidth \@tempdima #3\relax
+      \leavevmode
+      \@tempdima 1cm\relax % adjust identation of subsection title
+      \advance\leftskip \@tempdima \null\hskip -\leftskip
+      {#4}\nobreak\leaders\hbox{$\m@th
+        \mkern \@dotsep mu\hbox{.}\mkern \@dotsep mu$}\hfill
+        \hbox to\@pnumwidth{\@tocpagenum{#5}}\par}\fi}
+
+\def\@tocpagenum#1{\devanagaripagenumber{#1}}
+\makeatother
+
+% Redefine the formatting of section entries in the table of contents
+\makeatletter
+\renewcommand{\l@section}[2]{%
+  \ifnum \c@tocdepth >\z@
+    \addpenalty\@secpenalty
+    \addvspace{1.0em \@plus\p@}%
+    \setlength\@tempdima{1.5em}% Adjust this
+    \begingroup
+      \parindent \z@ \rightskip \@pnumwidth
+      \parfillskip -\@pnumwidth
+      \leavevmode \normalsize
+      \advance\leftskip\@tempdima
+      \hskip -\leftskip
+      {\devanagarifont #1}\nobreak\hfil 
+      \nobreak\hb@xt@\@pnumwidth{\hss\devanagaripagenumber{#2}}\par
+    \endgroup
+  \fi}
+\makeatother
+%%%%%%%%%%%%%%%%%% Table of Contents Devanāgarī %%%%%%%%%%%%%%
+
+% Redefine the footnote numbering to Devanagari
+\renewcommand{\thefootnote}{\devanagarinumeral{footnote}}
+% Use Devanagari numerals for footnote markers
+\makeatletter
+\renewcommand{\@makefnmark}{\hbox{\textsuperscript{\devanagarinumeral{footnote}}}}
+\makeatother
+
