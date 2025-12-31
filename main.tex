@@ -1,8 +1,6 @@
 %%%% यह रूपद निशान्त मिश्रा(https://github.com/nishantaMishra) द्वारा रचा गया था। 
 % इसे LuaLaTeX द्वारा सङ्कलित किया जाना चाहिए।
 
-
-
 \documentclass[10pt,a4paper,twoside]{article}
 \usepackage[utf8]{inputenc} % यह अतीव आवश्यक है। मुद्रण करने के लिए यही प्रतीकों का परिज्ञान करता है। यह अक्षरों और प्रतीकों का एक मानक है। Unicode (or Universal Coded Character Set) Transformation Format – 8-bit. इसके अतिरिक्त भी अनेक सम्पुट प्रविष्ट किये जा सकते हैं परन्तु यदि विशेषज्ञान न हो तो इसका प्रयोग सरलता से किया जा सकता है।
 \usepackage[top=3.5cm,bottom=3.5cm,left=1cm,right=1cm,columnsep=20pt]{geometry}
@@ -57,7 +55,22 @@
  
 \include{01_CoverPage}
 
+%%%%% Empty Page %%%%%
+\newpage
+\shipout\null
+\pagenumbering{gobble}
+
+%%%%% Table of Contents %%%%%
+\clearpage
+\renewcommand{\contentsname}{विषयानुक्रमणिका}
+\pagestyle{empty}
+\tableofcontents
+\clearpage
+
+%%%%% Pagenumbering %%%%%
 \pagenumbering{arabic}
+\pagestyle{fancy}
+
 
 \section{ऊष्मा समीकरण का व्युत्पत्ति}
 ऊष्मा प्रवाह की प्रकृति का प्रेक्षण करके ऊष्मा समीकरण को व्युतपन्न किया जा सकता है। ऊष्मा सर्वदा सततः वितरित होती है। ऊष्मा स्रोत तथा प्रेक्षण बिन्दु के मध्य ऐसा कोई स्थान नहीं होता जहाँ ऊष्मा न हो। अतएव, ऊष्मा को सातत्य समीकरण का पालन करना चाहिए। इसे फिक\footnote{Fick} द्वार विसरण का प्रथम नियम कहा जाता है, इसके अनुसार,

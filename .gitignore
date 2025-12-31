@@ -1,0 +1,35 @@
+# LaTeX auxiliary and intermediate files
+*.aux
+*.log
+*.out
+*.toc
+*.lof
+*.lot
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+*.xdv
+
+# Exclude all PDFs except main.pdf
+*.pdf
+!main.pdf
+
+# Other temporary files
+*.tmp
+*.bak
+*.bbl
+*.blg
+*.brf
+*.idx
+*.ilg
+*.ind
+*.lof
+*.lot
+*.nav
+*.snm
+*.vrb
+*.dvi
+*.ps
+*.eps
+*.synctex(busy)
+*.synctex.gz(busy)
