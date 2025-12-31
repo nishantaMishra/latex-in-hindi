@@ -56,9 +56,8 @@ Minimum required configuration:
 
 ## Project Files
 
-- **`devanagariNumbering.tex`**: Main configuration file containing macros for converting all numbering (pages, sections, equations, figures) to Devanāgarī numerals.
-- **`devanagariNumbering2.tex`**: Alternative version of the numbering configuration.
 - **`main.tex`**: Main document file.
+- **`devanagariNumbering.tex`**: Main configuration file containing macros for converting all numbering (pages, sections, equations, figures) to Devanāgarī numerals.
 - **`01_CoverPage.tex`**: Cover page configuration.
 - **`README.md`**: This documentation file.
 
