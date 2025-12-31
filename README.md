@@ -21,10 +21,7 @@ Minimum required configuration:
 \usepackage{polyglossia}
 \usepackage{fancyhdr}
 \usepackage{amsmath}
-\usepackage{afterpage}
-\usepackage[T1]{fontenc}
 \usepackage{enumitem}
-\usepackage{pifont}
 
 % Set Devanāgarī fonts
 \newfontfamily\devanagarifont[Script=Devanagari]{Shobhika} % Main Devanāgarī font
