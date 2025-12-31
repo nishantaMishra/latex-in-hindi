@@ -7,7 +7,7 @@ For creating latex document in the Hindi language over Overleaf. I have used pol
 #### Section Numbering appears in Devanāgarī.
 
 
-See the [PDF](https://github.com/nishantaMishra/latex-in-hindi/main.pdf )
+See the [PDF](https://github.com/nishantaMishra/latex-in-hindi/blob/main/main.pdf)
 
 
 ## How to use
